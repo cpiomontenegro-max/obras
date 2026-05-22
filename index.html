@@ -1,1 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta Sponsoreo – Complejo Obras Sanitarias</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul-oscuro: #0d2a55;
+    --azul-medio: #1e5fba;
+    --azul-claro: #2d6cc0;
+    --dorado: #e8b84b;
+    --blanco: #ffffff;
+    --gris-claro: #f4f6fa;
+    --gris-texto: #3a3a3a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Lato', sans-serif; background: var(--gris-claro); color: var(--gris-texto); font-size: 16px; line-height: 1.6; }
 
+  .hero { background: linear-gradient(160deg, var(--azul-oscuro) 60%, var(--azul-medio)); color: var(--blanco); text-align: center; padding: 48px 24px 40px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 240px; height: 240px; border-radius: 50%; background: rgba(232,184,75,0.08); }
+  .hero-logo { width: 90px; height: auto; display: block; margin: 0 auto 16px; mix-blend-mode: screen; }
+  .hero-badge { display: inline-block; background: var(--dorado); color: var(--azul-oscuro); font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 20px; }
+  .hero h1 { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; line-height: 1.15; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .hero h1 span { color: var(--dorado); }
+  .hero-sub { font-size: 0.95rem; opacity: 0.8; margin-bottom: 6px; }
+  .hero-dir { font-size: 0.82rem; opacity: 0.6; }
+  .hero-año { margin-top: 20px; font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--dorado); letter-spacing: 3px; }
+
+  .foto-hero { margin: 0; line-height: 0; }
+  .foto-hero img { width: 100%; height: auto; display: block; }
+
+  section { padding: 36px 20px; }
+  section:nth-child(even) { background: var(--blanco); }
+  .section-label { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+  .section-label span { width: 4px; height: 28px; background: var(--dorado); border-radius: 2px; flex-shrink: 0; }
+  .section-label h2 { font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 600; text-transform: uppercase; color: var(--azul-oscuro); }
+  p { margin-bottom: 14px; font-size: 0.95rem; }
+
+  .img-bloque { margin: 16px 0; border-radius: 10px; overflow: hidden; border: 1px solid #dde4f0; }
+  .img-bloque img { width: 100%; height: auto; display: block; }
+  .img-caption { background: var(--azul-oscuro); color: var(--blanco); font-size: 0.78rem; padding: 8px 14px; font-family: 'Oswald', sans-serif; letter-spacing: 0.5px; text-transform: uppercase; }
+  .img-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
+  .img-duo .img-bloque { margin: 0; }
+
+  .infra-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
+  .infra-card { background: var(--gris-claro); border-radius: 10px; padding: 16px 14px; border-left: 3px solid var(--azul-medio); }
+  .infra-card .ic-icon { font-size: 1.5rem; margin-bottom: 6px; }
+  .infra-card h3 { font-family: 'Oswald', sans-serif; font-size: 0.95rem; color: var(--azul-oscuro); text-transform: uppercase; margin-bottom: 4px; }
+  .infra-card p { font-size: 0.8rem; margin: 0; color: #555; line-height: 1.4; }
+
+  .servicios-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .servicios-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.92rem; }
+  .servicios-list li::before { content: '✓'; color: var(--dorado); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+  .stats-row { display: flex; gap: 12px; margin: 20px 0; }
+  .stat-box { flex: 1; background: var(--azul-oscuro); color: var(--blanco); border-radius: 12px; padding: 20px 12px; text-align: center; }
+  .stat-box .num { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; color: var(--dorado); line-height: 1; }
+  .stat-box .lbl { font-size: 0.78rem; opacity: 0.8; margin-top: 4px; line-height: 1.3; }
+
+  .audiencia-items { display: flex; flex-direction: column; gap: 10px; }
+  .audiencia-item { background: var(--gris-claro); border-radius: 10px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; }
+  .audiencia-item .ai-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .audiencia-item h4 { font-family: 'Oswald', sans-serif; font-size: 0.95rem; color: var(--azul-oscuro); margin-bottom: 2px; }
+  .audiencia-item p { font-size: 0.82rem; margin: 0; color: #555; }
+
+  .formato-bloque { background: var(--gris-claro); border-radius: 12px; padding: 18px 16px; margin-bottom: 14px; }
+  .formato-bloque h3 { font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--azul-medio); text-transform: uppercase; margin-bottom: 10px; }
+  .formato-bloque ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .formato-bloque ul li { font-size: 0.88rem; display: flex; gap: 8px; align-items: flex-start; }
+  .formato-bloque ul li::before { content: '▸'; color: var(--dorado); flex-shrink: 0; }
+  .medida { display: inline-block; background: rgba(30,95,186,0.1); color: var(--azul-medio); font-size: 0.75rem; padding: 1px 7px; border-radius: 10px; font-weight: 700; white-space: nowrap; margin-left: 4px; }
+
+  .precios-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 8px; }
+  .precios-table th { background: var(--azul-oscuro); color: var(--blanco); padding: 10px 12px; text-align: left; font-family: 'Oswald', sans-serif; font-weight: 400; }
+  .precios-table td { padding: 10px 12px; border-bottom: 1px solid #e0e6f0; vertical-align: top; }
+  .precios-table tr:last-child td { border-bottom: none; }
+  .precios-table tr:nth-child(even) td { background: rgba(45,108,192,0.04); }
+  .precio-val { font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--azul-medio); white-space: nowrap; font-weight: 600; }
+
+  .packs-container { display: flex; flex-direction: column; gap: 16px; }
+  .pack-card { border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(13,42,85,0.10); }
+  .pack-header { padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
+  .pack-header h3 { font-family: 'Oswald', sans-serif; font-size: 1.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--blanco); }
+  .pack-header .pack-precio { font-family: 'Oswald', sans-serif; font-size: 1.1rem; color: var(--blanco); opacity: 0.92; text-align: right; line-height: 1.2; }
+  .pack-header .pack-precio small { display: block; font-size: 0.7rem; opacity: 0.75; font-family: 'Lato', sans-serif; }
+  .pack-bronce .pack-header { background: linear-gradient(135deg, #7a5c2e, #b8863d); }
+  .pack-plata .pack-header  { background: linear-gradient(135deg, #4a5568, #718096); }
+  .pack-oro .pack-header    { background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-medio)); border-bottom: 3px solid var(--dorado); }
+  .pack-body { background: var(--blanco); padding: 16px 20px; }
+  .pack-body ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .pack-body ul li { font-size: 0.88rem; display: flex; gap: 8px; align-items: flex-start; }
+  .pack-bronce .pack-body ul li::before { content: '◆'; color: #b8863d; flex-shrink: 0; }
+  .pack-plata  .pack-body ul li::before { content: '◆'; color: #718096; flex-shrink: 0; }
+  .pack-oro    .pack-body ul li::before { content: '◆'; color: var(--dorado); flex-shrink: 0; }
+  .pack-oro-badge { display: inline-block; background: var(--dorado); color: var(--azul-oscuro); font-size: 0.7rem; font-weight: 700; font-family: 'Oswald', sans-serif; letter-spacing: 1px; padding: 2px 10px; border-radius: 10px; margin-left: 8px; vertical-align: middle; }
+
+  .pared-card { background: var(--blanco); border-radius: 14px; overflow: hidden; margin-bottom: 16px; box-shadow: 0 4px 16px rgba(13,42,85,0.08); }
+  .pared-header { background: var(--azul-oscuro); color: var(--blanco); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; }
+  .pared-header h3 { font-family: 'Oswald', sans-serif; font-size: 1.2rem; text-transform: uppercase; }
+  .pared-precio-badge { background: var(--dorado); color: var(--azul-oscuro); font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; padding: 6px 14px; border-radius: 20px; white-space: nowrap; }
+  .pared-body { padding: 16px 20px; }
+  .pared-body ul { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; }
+  .pared-body ul li { display: flex; gap: 8px; align-items: flex-start; }
+  .pared-body ul li::before { content: '▸'; color: var(--azul-medio); flex-shrink: 0; }
+
+  .divider { width: 40px; height: 3px; background: var(--dorado); border-radius: 2px; margin: 14px 0 18px; }
+  .sh3 { font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--azul-oscuro); text-transform: uppercase; margin-bottom: 12px; }
+
+  .cta-section { background: linear-gradient(150deg, var(--azul-oscuro), var(--azul-medio)); color: var(--blanco); text-align: center; padding: 48px 24px; }
+  .cta-section h2 { font-family: 'Oswald', sans-serif; font-size: 1.6rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
+  .cta-section h2 span { color: var(--dorado); }
+  .cta-section p { font-size: 0.92rem; opacity: 0.85; max-width: 340px; margin: 0 auto 24px; }
+  .cta-btn { display: inline-block; background: var(--dorado); color: var(--azul-oscuro); font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 14px 32px; border-radius: 30px; text-decoration: none; box-shadow: 0 4px 20px rgba(232,184,75,0.35); }
+  .cta-info { margin-top: 24px; font-size: 0.82rem; opacity: 0.6; }
+  .cta-info strong { color: var(--dorado); opacity: 1; }
+  footer { background: #08192e; color: rgba(255,255,255,0.45); text-align: center; font-size: 0.78rem; padding: 20px 16px; }
+  footer strong { color: var(--dorado); }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <img class="hero-logo" src="imagenes/logo.png" alt="Logo Obras Sanitarias">
+  <div class="hero-badge">Propuesta Comercial 2026</div>
+  <h1>Complejo<br><span>Obras Sanitarias</span></h1>
+  <p class="hero-sub">Sponsoreo &amp; Publicidad Deportiva</p>
+  <p class="hero-dir">Av. Núñez de Prado S/N (esq. Arenales) · Santiago del Estero</p>
+  <div class="hero-año">◆ 2026 ◆</div>
+</section>
+
+<div class="foto-hero">
+  <img src="imagenes/foto_complejo.jpg" alt="Vista aérea Complejo Obras Sanitarias">
+</div>
+
+<section>
+  <div class="section-label"><span></span><h2>1. Presentación del Complejo</h2></div>
+  <p>Nuestro complejo es un espacio diseñado para el deporte, la recreación y la vida social. Un punto de encuentro para deportistas, familias, amigos y empresas que encuentran aquí un entorno seguro, moderno y con gran movimiento de personas.</p>
+  <div class="stats-row">
+    <div class="stat-box"><div class="num">+1000</div><div class="lbl">personas por semana</div></div>
+    <div class="stat-box"><div class="num">365</div><div class="lbl">días de exposición</div></div>
+    <div class="stat-box"><div class="num">18–45</div><div class="lbl">años audiencia</div></div>
+  </div>
+  <div class="divider"></div>
+  <p class="sh3">Infraestructura Deportiva</p>
+  <div class="infra-grid">
+    <div class="infra-card"><div class="ic-icon">🎾</div><h3>Pádel</h3><p>Canchas profesionales con césped sintético e iluminación homologada para torneos.</p></div>
+    <div class="infra-card"><div class="ic-icon">⚽</div><h3>Fútbol</h3><p>Canchas con césped natural e iluminación profesional.</p></div>
+    <div class="infra-card"><div class="ic-icon">🏀</div><h3>Básquet</h3><p>Espacio multiuso: vóley, handball, tenis, newcom y más.</p></div>
+    <div class="infra-card"><div class="ic-icon">🌿</div><h3>Recreación</h3><p>Quinchos, asadores verdes y zonas verdes de estar.</p></div>
+  </div>
+  <div class="divider"></div>
+  <p class="sh3">Servicios Complementarios</p>
+  <ul class="servicios-list">
+    <li>Cantina / Bar deportivo con variedad gastronómica y bebidas</li>
+    <li>Vestuarios completos</li>
+    <li>Estacionamiento privado</li>
+    <li>Wi-Fi libre para visitantes</li>
+  </ul>
+  <div class="divider"></div>
+  <p class="sh3">Movimiento de Personas</p>
+  <ul class="servicios-list">
+    <li>Afluencia semanal estimada: más de 1000 personas entre jugadores, acompañantes y público en eventos.</li>
+    <li>Público diverso: jóvenes, adultos, familias y niños en entrenamientos y actividades recreativas.</li>
+    <li>Eventos especiales y torneos que potencian la visibilidad de las marcas.</li>
+  </ul>
+  <div class="divider"></div>
+  <p class="sh3">Propuesta de Valor</p>
+  <p>El complejo no es solo un centro deportivo: es un ecosistema social y comercial donde convergen deporte, entretenimiento, familia y comunidad. Un escenario ideal para que las marcas tengan exposición constante asociada a valores de salud, vida activa y superación.</p>
+</section>
+
+<section>
+  <div class="section-label"><span></span><h2>2. Oportunidad de Publicidad</h2></div>
+  <p>Cada día, decenas de personas practican deportes, socializan y consumen en nuestras instalaciones. La exposición es de doble impacto:</p>
+  <div class="audiencia-items">
+    <div class="audiencia-item"><div class="ai-icon">🏟️</div><div><h4>Impacto Interno</h4><p>Jugadores, acompañantes, familias y público de torneos.</p></div></div>
+    <div class="audiencia-item"><div class="ai-icon">🏙️</div><div><h4>Impacto Externo</h4><p>Conductores, peatones y deportistas que transitan por Av. Núñez de Prado y costanera baja.</p></div></div>
+  </div>
+  <div class="divider"></div>
+  <p class="sh3">¿Por qué anunciar en el complejo?</p>
+  <div class="audiencia-items">
+    <div class="audiencia-item"><div class="ai-icon">📅</div><div><h4>Exposición Sostenida</h4><p>Las marcas se muestran durante todo el año, sin depender de una sola campaña puntual.</p></div></div>
+    <div class="audiencia-item"><div class="ai-icon">🎯</div><div><h4>Segmento Activo</h4><p>Jóvenes y adultos de 18 a 45 años vinculados a deporte, salud, alimentación, tecnología e indumentaria.</p></div></div>
+    <div class="audiencia-item"><div class="ai-icon">👨‍👩‍👧</div><div><h4>Alcance Familiar</h4><p>Padres, amigos, parejas y niños amplían la audiencia expuesta.</p></div></div>
+    <div class="audiencia-item"><div class="ai-icon">💪</div><div><h4>Entorno Positivo</h4><p>Publicidad asociada a bienestar, esfuerzo, vida activa y trabajo en equipo.</p></div></div>
+    <div class="audiencia-item"><div class="ai-icon">🚗</div><div><h4>Visibilidad Urbana</h4><p>Cartelería externa en calles de alto tránsito vehicular y peatonal.</p></div></div>
+  </div>
+  <div class="divider"></div>
+  <p class="sh3">Formatos Disponibles</p>
+  <div class="formato-bloque">
+    <h3>🎾 Cancha Pádel</h3>
+    <ul>
+      <li>Carteles termofusión <span class="medida">2m × 0,8m</span> — visión desde cantina e ingreso</li>
+      <li>Protección canchas + Faja de pádel <span class="medida">10m × 10cm</span></li>
+      <li>Flay banner jardines de cancha</li>
+      <li>Lona interior lateral techo <span class="medida">2,5m × 7m</span></li>
+      <li>Pilares estructurales zona cantina <span class="medida">2m × 0,5m</span></li>
+      <li>Lateral OESTE <span class="medida">8m alto × 10m largo</span></li>
+      <li>Frente SUR <span class="medida">20m ancho × 8–11m alto</span></li>
+    </ul>
+  </div>
+  <div class="formato-bloque">
+    <h3>📱 Digital</h3>
+    <ul>
+      <li>Redes sociales y web del complejo</li>
+      <li>Grupos de comunicación</li>
+      <li>Publicidad en TV de cantina</li>
+    </ul>
+  </div>
+  <div class="formato-bloque">
+    <h3>⚽ Fútbol</h3>
+    <ul>
+      <li>Lateral de contención interior <span class="medida">2m × 0,8m</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="section-label"><span></span><h2>Canchas Pádel</h2></div>
+  <div class="img-bloque">
+    <img src="imagenes/vista_general.jpg" alt="Vista general Complejo">
+    <div class="img-caption">Vista general del Complejo · Santiago del Estero</div>
+  </div>
+  <div class="img-duo">
+    <div class="img-bloque">
+      <img src="imagenes/padel_1.jpg" alt="Cancha de Pádel">
+      <div class="img-caption">Cancha Pádel</div>
+    </div>
+    <div class="img-bloque">
+      <img src="imagenes/padel_2.jpg" alt="Cancha de Pádel">
+      <div class="img-caption">Cancha Pádel</div>
+    </div>
+  </div>
+  <div class="img-bloque">
+    <img src="imagenes/padel_espacios.jpg" alt="Espacios publicitarios pádel">
+    <div class="img-caption">Espacios publicitarios · Canchas Pádel</div>
+  </div>
+  <div class="divider"></div>
+  <p class="sh3">Publicidad Pádel — Opción 1 año</p>
+  <table class="precios-table">
+    <thead><tr><th>Espacio</th><th>Precio/mes</th></tr></thead>
+    <tbody>
+      <tr><td>2 carteles termofusión (1 cancha) <span class="medida">2m × 0,8m</span></td><td><span class="precio-val">$30.000</span></td></tr>
+      <tr><td>Lona lateral techo ESTE <span class="medida">7m × 3m</span></td><td><span class="precio-val">$75.000</span></td></tr>
+      <tr><td>Lona lateral techo OESTE interno <span class="medida">7m × 3m</span></td><td><span class="precio-val">$50.000</span></td></tr>
+      <tr><td>Faja de pádel + Protector cancha × 2 <span class="medida">10m × 10cm</span></td><td><span class="precio-val">$40.000</span></td></tr>
+      <tr><td>Flay banner jardines de cancha</td><td><span class="precio-val">$15.000</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="section-label"><span></span><h2>Packs de Sponsoreo</h2></div>
+  <p style="font-size:0.85rem;color:#666;margin-bottom:20px;">Contratos de 1 año · Precios mensuales en pesos argentinos</p>
+  <div class="packs-container">
+    <div class="pack-card pack-bronce">
+      <div class="pack-header"><h3>🥉 Bronce</h3><div class="pack-precio">$50.000<small>/ mes</small></div></div>
+      <div class="pack-body"><ul>
+        <li>2 carteles termofusión (2m × 0,8m) — 1 cancha</li>
+        <li>2 flay banner jardines de cancha</li>
+        <li>1 lona interna techo OESTE</li>
+      </ul></div>
+    </div>
+    <div class="pack-card pack-plata">
+      <div class="pack-header"><h3>🥈 Plata</h3><div class="pack-precio">$100.000<small>/ mes</small></div></div>
+      <div class="pack-body"><ul>
+        <li>2 carteles termofusión (2m × 0,8m) — 1 cancha</li>
+        <li>2 flay banner jardines de cancha</li>
+        <li>1 lona lateral techo ESTE (7m × 3m)</li>
+      </ul></div>
+    </div>
+    <div class="pack-card pack-oro">
+      <div class="pack-header"><h3>🥇 Oro <span class="pack-oro-badge">RECOMENDADO</span></h3><div class="pack-precio">$120.000<small>/ mes</small></div></div>
+      <div class="pack-body"><ul>
+        <li>2 carteles termofusión (2m × 0,8m) — 1 cancha</li>
+        <li>2 flay banner jardines de cancha</li>
+        <li>1 lona interna techo OESTE</li>
+        <li>Protección cancha de pádel × 2</li>
+        <li>Faja de pádel (10m × 10cm)</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label"><span></span><h2>Paredes Exteriores</h2></div>
+  <p style="font-size:0.85rem;color:#666;margin-bottom:16px;">Contratos mínimos de 1 año</p>
+  <div class="pared-card">
+    <div class="pared-header"><h3>⬛ Pared OESTE</h3><div class="pared-precio-badge">$300.000/mes</div></div>
+    <div style="line-height:0;"><img src="imagenes/pared_oeste.jpg" alt="Pared OESTE" style="width:100%;height:auto;display:block;"></div>
+    <div class="pared-body"><ul>
+      <li>Cartelería principal <span class="medida">14m ancho × 8m alto</span></li>
+      <li>Barandas × 2 posiciones <span class="medida">2m × 0,8m</span></li>
+      <li>4 flay banner jardines</li>
+      <li>1 espacio interior ESTE <span class="medida">7m largo × 3m ancho</span></li>
+    </ul></div>
+  </div>
+  <div class="pared-card">
+    <div class="pared-header"><h3>🟦 Pared SUR</h3><div class="pared-precio-badge">$600.000/mes</div></div>
+    <div style="line-height:0;"><img src="imagenes/pared_sur.jpg" alt="Pared SUR" style="width:100%;height:auto;display:block;"></div>
+    <div class="pared-body"><ul>
+      <li>Cartelería principal <span class="medida">20m ancho × 8–11m alto</span></li>
+      <li>Barandas × 2 posiciones <span class="medida">2m × 0,8m</span></li>
+      <li>4 flay banner jardines</li>
+      <li>1 espacio interior ESTE <span class="medida">7m largo × 3m ancho</span></li>
+    </ul></div>
+  </div>
+  <div class="divider"></div>
+  <p class="sh3">Espacios Individuales — Paredes</p>
+  <p style="font-size:0.8rem;color:#777;margin-bottom:10px;">Contratos mínimos de 6 meses</p>
+  <table class="precios-table">
+    <thead><tr><th>Espacio</th><th>Precio/mes</th></tr></thead>
+    <tbody>
+      <tr><td>Barandas SUR <span class="medida">2m × 0,8m</span></td><td><span class="precio-val">$40.000</span></td></tr>
+      <tr><td>Barandas OESTE <span class="medida">2m × 0,8m</span></td><td><span class="precio-val">$25.000</span></td></tr>
+      <tr><td>Flay banner jardines</td><td><span class="precio-val">$20.000</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="cta-section">
+  <h2>¿Querés<br><span>ser parte?</span></h2>
+  <p>Asociá tu marca a un espacio deportivo con movimiento real, audiencia activa y visibilidad urbana durante todo el año.</p>
+  <a href="https://wa.me/54" class="cta-btn">Consultá ahora por WhatsApp</a>
+  <div class="cta-info">Complejo Obras Sanitarias · <strong>Av. Núñez de Prado S/N</strong><br>Santiago del Estero · 2026</div>
+</section>
+
+<footer>
+  &copy; 2026 <strong>Complejo Deportivo Obras Sanitarias</strong> · Santiago del Estero, Argentina
+</footer>
+
+</body>
+</html>
