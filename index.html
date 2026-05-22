@@ -108,9 +108,33 @@
   .divider { width: 40px; height: 3px; background: var(--dorado); border-radius: 2px; margin: 14px 0 18px; }
   .sh3 { font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--azul-oscuro); text-transform: uppercase; margin-bottom: 12px; }
 
+  /* ROI COMPARATIVA */
+  .roi-intro { font-size: 1.05rem; font-weight: 700; color: var(--azul-oscuro); font-family: 'Oswald', sans-serif; text-transform: uppercase; margin-bottom: 6px; }
+  .roi-sub { font-size: 0.88rem; color: #555; margin-bottom: 18px; }
+  .roi-highlight { background: linear-gradient(135deg, var(--azul-oscuro), var(--azul-medio)); border-radius: 14px; padding: 20px 16px; margin-bottom: 16px; color: var(--blanco); text-align: center; }
+  .roi-highlight .roi-num { font-family: 'Oswald', sans-serif; font-size: 2.2rem; font-weight: 700; color: var(--dorado); line-height: 1; }
+  .roi-highlight .roi-desc { font-size: 0.85rem; opacity: 0.85; margin-top: 4px; }
+  .roi-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; border-radius: 10px; overflow: hidden; }
+  .roi-table th { background: var(--azul-oscuro); color: var(--blanco); padding: 10px 10px; text-align: left; font-family: 'Oswald', sans-serif; font-weight: 400; }
+  .roi-table td { padding: 10px 10px; border-bottom: 1px solid #e0e6f0; vertical-align: middle; }
+  .roi-table tr:last-child td { border-bottom: none; }
+  .roi-table tr:nth-child(even) td { background: rgba(45,108,192,0.04); }
+  .roi-table .check { color: #2ecc71; font-weight: 700; }
+  .roi-table .cross { color: #e74c3c; font-weight: 700; }
+  .roi-table .col-obras { color: var(--azul-medio); font-weight: 700; }
+
+  /* CONDICIONES */
+  .condicion-card { background: var(--blanco); border-radius: 12px; border-left: 4px solid var(--azul-medio); padding: 16px 18px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(13,42,85,0.06); }
+  .condicion-card h4 { font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--azul-oscuro); text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .condicion-card p { font-size: 0.88rem; color: #555; margin: 0; line-height: 1.6; }
+  .condicion-card.destacada { border-left-color: var(--dorado); }
+  .condicion-card.destacada h4 { color: var(--azul-oscuro); }
+
+  /* CTA */
   .cta-section { background: linear-gradient(150deg, var(--azul-oscuro), var(--azul-medio)); color: var(--blanco); text-align: center; padding: 48px 24px; }
   .cta-section h2 { font-family: 'Oswald', sans-serif; font-size: 1.6rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
   .cta-section h2 span { color: var(--dorado); }
+  .cta-urgencia { display: inline-block; background: rgba(232,184,75,0.15); border: 1px solid rgba(232,184,75,0.4); color: var(--dorado); font-family: 'Oswald', sans-serif; font-size: 0.85rem; letter-spacing: 1px; padding: 6px 16px; border-radius: 20px; margin-bottom: 16px; }
   .cta-section p { font-size: 0.92rem; opacity: 0.85; max-width: 340px; margin: 0 auto 24px; }
   .cta-btn { display: inline-block; background: var(--dorado); color: var(--azul-oscuro); font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 14px 32px; border-radius: 30px; text-decoration: none; box-shadow: 0 4px 20px rgba(232,184,75,0.35); }
   .cta-info { margin-top: 24px; font-size: 0.82rem; opacity: 0.6; }
@@ -251,11 +275,59 @@
 </section>
 
 <section>
+  <div class="section-label"><span></span><h2>¿Qué vale tu inversión?</h2></div>
+  <p class="roi-intro">Tu marca, vista por miles de personas reales cada mes.</p>
+  <p class="roi-sub">En publicidad digital pagás por clics que se olvidan. Acá pagás por presencia real, continua y asociada al deporte.</p>
+
+  <div class="roi-highlight">
+    <div class="roi-num">+4.000</div>
+    <div class="roi-desc">impactos mensuales mínimos garantizados<br>sobre público activo, local y recurrente</div>
+  </div>
+
+  <table class="roi-table">
+    <thead>
+      <tr>
+        <th>¿Qué comparás?</th>
+        <th>Meta / Google Ads</th>
+        <th class="col-obras">Complejo Obras</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Alcance mensual</td>
+        <td>Estimado</td>
+        <td class="col-obras">Real y presencial</td>
+      </tr>
+      <tr>
+        <td>Público</td>
+        <td>Segmentación digital</td>
+        <td class="col-obras">Local, activo, recurrente</td>
+      </tr>
+      <tr>
+        <td>Duración del impacto</td>
+        <td>Mientras pagás el clic</td>
+        <td class="col-obras">Todo el mes, 24/7</td>
+      </tr>
+      <tr>
+        <td>Asociación de marca</td>
+        <td class="cross">Ninguna</td>
+        <td class="col-obras check">Deporte + comunidad</td>
+      </tr>
+      <tr>
+        <td>Visibilidad urbana</td>
+        <td class="cross">No</td>
+        <td class="col-obras check">Av. Núñez de Prado</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
   <div class="section-label"><span></span><h2>Packs de Sponsoreo</h2></div>
   <p style="font-size:0.85rem;color:#666;margin-bottom:20px;">Contratos de 1 año · Precios mensuales en pesos argentinos</p>
   <div class="packs-container">
     <div class="pack-card pack-bronce">
-      <div class="pack-header"><h3>🥉 Bronce</h3><div class="pack-precio">$50.000<small>/ mes</small></div></div>
+      <div class="pack-header"><h3>🎾 Pack Cancha</h3><div class="pack-precio">$50.000<small>/ mes</small></div></div>
       <div class="pack-body"><ul>
         <li>2 carteles termofusión (2m × 0,8m) — 1 cancha</li>
         <li>2 flay banner jardines de cancha</li>
@@ -263,7 +335,7 @@
       </ul></div>
     </div>
     <div class="pack-card pack-plata">
-      <div class="pack-header"><h3>🥈 Plata</h3><div class="pack-precio">$100.000<small>/ mes</small></div></div>
+      <div class="pack-header"><h3>🏟️ Pack Complejo</h3><div class="pack-precio">$100.000<small>/ mes</small></div></div>
       <div class="pack-body"><ul>
         <li>2 carteles termofusión (2m × 0,8m) — 1 cancha</li>
         <li>2 flay banner jardines de cancha</li>
@@ -271,7 +343,7 @@
       </ul></div>
     </div>
     <div class="pack-card pack-oro">
-      <div class="pack-header"><h3>🥇 Oro <span class="pack-oro-badge">RECOMENDADO</span></h3><div class="pack-precio">$120.000<small>/ mes</small></div></div>
+      <div class="pack-header"><h3>👑 Pack Premium <span class="pack-oro-badge">RECOMENDADO</span></h3><div class="pack-precio">$120.000<small>/ mes</small></div></div>
       <div class="pack-body"><ul>
         <li>2 carteles termofusión (2m × 0,8m) — 1 cancha</li>
         <li>2 flay banner jardines de cancha</li>
@@ -280,6 +352,25 @@
         <li>Faja de pádel (10m × 10cm)</li>
       </ul></div>
     </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label"><span></span><h2>Condiciones de Publicidad</h2></div>
+
+  <div class="condicion-card">
+    <h4>🖨️ Material publicitario</h4>
+    <p>Todo el material gráfico — carteles, lonas, fajas y banners — debe ser entregado por el auspiciante debidamente impreso y listo para su colocación. El Complejo Obras Sanitarias no se hace responsable por demoras vinculadas a la producción o entrega del material.</p>
+  </div>
+
+  <div class="condicion-card">
+    <h4>🔄 Renovación del material</h4>
+    <p>En caso de deterioro natural por el uso y el paso del tiempo, el auspiciante deberá renovar el material a su cargo. El Complejo Obras Sanitarias asumirá el costo de reposición únicamente cuando el deterioro sea ocasionado por mal trato de nuestra parte.</p>
+  </div>
+
+  <div class="condicion-card destacada">
+    <h4>📅 Plazo de colocación</h4>
+    <p>Una vez confirmado el acuerdo de sponsoreo, el auspiciante dispone de <strong>15 días hábiles</strong> para la entrega e instalación del material publicitario en el complejo. Vencido ese plazo, comienza a correr la cuota mensual independientemente de si el material fue colocado o no.</p>
   </div>
 </section>
 
@@ -320,9 +411,10 @@
 </section>
 
 <section class="cta-section">
-  <h2>¿Querés<br><span>ser parte?</span></h2>
-  <p>Asociá tu marca a un espacio deportivo con movimiento real, audiencia activa y visibilidad urbana durante todo el año.</p>
-  <a href="https://wa.me/54" class="cta-btn">Consultá ahora por WhatsApp</a>
+  <div class="cta-urgencia">⚡ Espacios limitados para 2026</div>
+  <h2>Los primeros en entrar<br><span>eligen primero.</span></h2>
+  <p>No todos los espacios tienen el mismo valor. Los que se ubican hoy son los que más se ven mañana. Reservá tu lugar antes de que lo haga tu competencia.</p>
+  <a href="https://wa.me/54" class="cta-btn">Quiero reservar mi espacio</a>
   <div class="cta-info">Complejo Obras Sanitarias · <strong>Av. Núñez de Prado S/N</strong><br>Santiago del Estero · 2026</div>
 </section>
 
